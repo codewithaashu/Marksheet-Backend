@@ -21,8 +21,13 @@ const RegisterStudent = async (req, res) => {
       adminUsername,
       result,
     } = req.body;
-    const totalStudents = await Students.countDocuments();
-    const rollNo = 5001 + totalStudents;
+    const lastStudent = await Students.findOne({ course }).sort({ rollNo: -1 });
+    let rollNo;
+    if (!lastStudent) {
+      rollNo = 5001;
+    } else {
+      rollNo = lastStudent.rollNo + 1;
+    }
     const random4Digits = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
     const regNo = `${
       course === "SR. Secondary Examination(12th Class)" ? "HS" : "SE"

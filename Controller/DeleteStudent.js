@@ -3,8 +3,8 @@ import Students from "../Model/Students.js";
 const DeleteStudent = async (req, res) => {
   try {
     const studentId = req.params.id;
-    await Students.findByIdAndDelete(studentId);
-    const data = await Students.find({});
+    const deletedStudent = await Students.findByIdAndDelete(studentId);
+    const data = await Students.find({ course: deletedStudent.course });
     return res
       .status(201)
       .json({ message: "Student Deleted Successfully", data });
