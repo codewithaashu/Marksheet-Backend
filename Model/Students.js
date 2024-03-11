@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
 const studentSchema = new mongoose.Schema({
+  modeOfResult: { type: String, required: true, default: "Online" },
   imgSrc: { type: String, required: true },
   name: { type: String, required: true },
   dob: { type: String, required: true },
+  gender: { type: String, required: true, default: "Male" },
   fatherName: { type: String, required: true },
   motherName: { type: String, required: true },
   year: { type: Number, required: true },
@@ -20,6 +22,7 @@ const studentSchema = new mongoose.Schema({
   result: { type: Object },
   regDate: { type: String, default: new Date().toDateString(), required: true },
   adminUsername: { type: String, required: true },
+  printingStatus: { type: String, default: "Incomplete" },
 });
 
 const Students = new mongoose.model("Students", studentSchema);

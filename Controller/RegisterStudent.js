@@ -3,9 +3,11 @@ import Students from "../Model/Students.js";
 const RegisterStudent = async (req, res) => {
   try {
     const {
+      modeOfResult,
       imgSrc,
       name,
       dob,
+      gender,
       fatherName,
       motherName,
       year,
@@ -56,10 +58,12 @@ const RegisterStudent = async (req, res) => {
       return curr;
     });
     const student = new Students({
+      modeOfResult,
       imgSrc,
       name,
       course,
       dob,
+      gender,
       fatherName,
       motherName,
       rollNo,
