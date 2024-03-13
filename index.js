@@ -9,6 +9,7 @@ import AdminRouter from "./Routes/AdminRouter.js";
 import LoginRouter from "./Routes/LoginRouter.js";
 import ClassStudentsRouter from "./Routes/ClassStudentsRouter.js";
 import ChangePasswordRouter from "./Routes/ChangePasswordRouter.js";
+import MessageRouter from "./Routes/MessageRouter.js";
 const app = express();
 dotenv.configDotenv();
 // const __dirname = path.resolve();
@@ -30,6 +31,7 @@ app.use("/api/admin", AdminRouter);
 app.use("/api/login", LoginRouter);
 app.use("/api/courseStudent", ClassStudentsRouter);
 app.use("/api/changePassword", ChangePasswordRouter);
+app.use("/api/message", MessageRouter);
 app.listen("8000", () => {
   console.log("I am listening at port 8000");
 });
