@@ -6,7 +6,10 @@ const GetResult = async (req, res) => {
     console.log(req.body);
     let student;
     if (!course) {
-      student = await Students.findOne({ regNo: regNo, dob: dob });
+      student = await Students.findOne({
+        regNo: regNo,
+        dob: dob,
+      });
     } else {
       student = await Students.findOne({
         regNo: regNo,
@@ -14,7 +17,8 @@ const GetResult = async (req, res) => {
         course: course,
       });
     }
-    if (!student) {
+    console.log(student);
+    if (!student || student.modeOfResult === "Offline") {
       return res.status(201).json({
         success: false,
         message: "Invalid details.Please enter valid details.",
