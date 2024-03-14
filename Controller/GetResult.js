@@ -8,12 +8,11 @@ const GetResult = async (req, res) => {
     if (!course) {
       student = await Students.findOne({
         regNo: regNo,
-        dob: dob,
+        course,
       });
     } else {
       student = await Students.findOne({
         regNo: regNo,
-        dob: dob,
         course: course,
       });
     }
