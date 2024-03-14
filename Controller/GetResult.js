@@ -17,7 +17,6 @@ const GetResult = async (req, res) => {
         course: course,
       });
     }
-    console.log(student);
     if (!student || student.modeOfResult === "Offline") {
       return res.status(201).json({
         success: false,
