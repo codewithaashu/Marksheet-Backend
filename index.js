@@ -2,7 +2,6 @@ import express from "express";
 import { connectDB } from "./Config/Database.js";
 import dotenv from "dotenv";
 import cors from "cors";
-import path from "path";
 import StudentRouter from "./Routes/StudentRouter.js";
 import ResultRouter from "./Routes/ResultRouter.js";
 import AdminRouter from "./Routes/AdminRouter.js";
@@ -12,12 +11,7 @@ import ChangePasswordRouter from "./Routes/ChangePasswordRouter.js";
 import MessageRouter from "./Routes/MessageRouter.js";
 const app = express();
 dotenv.configDotenv();
-// const __dirname = path.resolve();
-// app.use(express.static(path.join(__dirname, "build")));
 
-// app.get("/*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "build", "index.html"));
-// });
 app.get("/", (req, res) => {
   res.send("Hello I am Server");
 });
