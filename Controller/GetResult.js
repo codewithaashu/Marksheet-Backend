@@ -2,8 +2,7 @@ import Students from "../Model/Students.js";
 
 const GetResult = async (req, res) => {
   try {
-    const { regNo, dob, course } = req.body;
-    console.log(req.body);
+    const { regNo, course } = req.body;
     let student;
     if (!course) {
       student = await Students.findOne({
