@@ -3,7 +3,6 @@ import Students from "../Model/Students.js";
 const RegisterStudent = async (req, res) => {
   try {
     const {
-      modeOfResult,
       imgSrc,
       name,
       dob,
