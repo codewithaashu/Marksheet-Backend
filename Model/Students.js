@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const studentSchema = new mongoose.Schema({
-  modeOfResult: { type: String, required: true, default: "Online" },
+  modeOfResult: { type: String, default: "Online" },
   imgSrc: { type: String, required: true },
   name: { type: String, required: true },
   dob: { type: String, required: true },

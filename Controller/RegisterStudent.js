@@ -58,7 +58,7 @@ const RegisterStudent = async (req, res) => {
       return curr;
     });
     const student = new Students({
-      modeOfResult,
+      modeOfResult: "Online",
       imgSrc,
       name,
       course,
@@ -85,7 +85,7 @@ const RegisterStudent = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Registered Successfully", data });
   } catch (err) {
-    return res.status(500).json({ message: err.message, success: false });
+    return res.status(200).json({ message: err.message, success: false });
   }
 };
 export default RegisterStudent;
