@@ -18,6 +18,7 @@ const studentSchema = new mongoose.Schema({
   option4: { type: String, required: true },
   option5: { type: String, required: false },
   rollNo: { type: Number, required: true },
+  sLNoArr: { type: Object, required: true },
   regNo: { type: String, unique: true, required: true },
   result: { type: Object },
   regDate: { type: String, default: new Date().toDateString(), required: true },

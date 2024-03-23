@@ -24,10 +24,25 @@ const RegisterStudent = async (req, res) => {
     } = req.body;
     const lastStudent = await Students.findOne({ course }).sort({ rollNo: -1 });
     let rollNo;
+    let sLNoArr;
     if (!lastStudent) {
       rollNo = 5001;
+      sLNoArr = {
+        registration: 4001,
+        admitCard: 4201,
+        marksheet: 4401,
+        migration: 4601,
+        certificate: 4801,
+      };
     } else {
       rollNo = lastStudent.rollNo + 1;
+      sLNoArr = {
+        registration: lastStudent.rollNo - 5001 + 1 + 4001,
+        admitCard: lastStudent.rollNo - 5001 + 1 + 4201,
+        marksheet: lastStudent.rollNo - 5001 + 1 + 4401,
+        migration: lastStudent.rollNo - 5001 + 1 + 4601,
+        certificate: lastStudent.rollNo - 5001 + 1 + 4801,
+      };
     }
     const random4Digits = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
     const regNo = `${
@@ -78,6 +93,7 @@ const RegisterStudent = async (req, res) => {
       secondLanguage,
       stream,
       result,
+      sLNoArr,
     });
     const data = await student.save();
     return res
