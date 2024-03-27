@@ -2,7 +2,10 @@ import { Admins } from "../Model/Admins.js";
 const Login = async (req, res) => {
   try {
     const { username, password, userType } = req.body;
-    const user = await Admins.findOne({ username, userType });
+    const user = await Admins.findOne({
+      username: username.toLowerCase(),
+      userType,
+    });
     if (!user) {
       return res.status(400).json({
         success: false,
