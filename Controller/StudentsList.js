@@ -11,11 +11,11 @@ const StudentsList = async (req, res) => {
       students = await Students.find({
         course: course,
         adminUsername: req.query.username,
-      });
+      }).sort({ rollNo: -1, createdAt: -1 });
     } else {
       students = await Students.find({
         course: course,
-      });
+      }).sort({ rollNo: -1, createdAt: -1 });
     }
     return res.status(200).json({ data: students });
   } catch (err) {
